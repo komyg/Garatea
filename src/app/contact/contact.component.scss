@@ -1,0 +1,72 @@
+$form-color: #555;
+$form-background-color: #fff;
+$form-border-color: #ccc;
+$button-backgound-color: #fcac45;
+$button-color: #fff;
+
+.contact-form {
+  padding: 80px 0;
+
+  label {
+    float: left;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: $form-color;
+    background-color: $form-background-color;
+    background-image: none;
+    border: 1px solid $form-border-color;
+    border-radius: 2px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    //-o-transition: none;
+    transition: none;
+
+    :focus {
+      border-color: inherit;
+      outline: 0;
+      -webkit-box-shadow: transparent;
+      box-shadow: transparent;
+    }
+  }
+
+  .form-text {
+    margin-top: 25px;
+  }
+
+  .form-btn {
+    float: right;
+    background: $button-backgound-color;
+    border: 0;
+    border-radius: 0;
+    padding: 10px 40px;
+    color: $button-color;
+    text-transform: uppercase;
+
+    :active {
+      background-image: none;
+      outline: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    :focus,
+    :active {
+      :focus {
+        outline: thin dotted;
+        outline: none;
+        outline-offset: none;
+      }
+    }
+
+  }
+}

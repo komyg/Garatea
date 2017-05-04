@@ -1,0 +1,40 @@
+@import '../shared/css/background-gradient';
+
+$home-background-color: #cfcfcf;
+$lead-text-color: #e3e3e3;
+$title-text-color: #fcac45;
+
+$background-gradient-color-stop1: rgba(0, 0, 0, 0.8);
+$background-gradient-color-stop2: rgba(0, 0, 0, 0.73);
+$background-gradient-color-stop3: rgba(0, 0, 0, 0.66);
+$background-gradient-color-stop4: rgba(0, 0, 0, 0.55);
+$background-gradient-color-stop5: rgba(0, 0, 0, 0.4);
+
+.home-background {
+  background: url('../../assets/img/01.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: $home-background-color;
+
+  .overlay {
+    @include background-gradient($background-gradient-color-stop1, $background-gradient-color-stop2, $background-gradient-color-stop3, $background-gradient-color-stop4, $background-gradient-color-stop5);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 ); // IE6-9
+    height: 750px;
+    background-attachment: fixed;
+  }
+
+  .content {
+    position: relative;
+    padding: 20% 0 0;
+  }
+
+  .title-text {
+    color: $title-text-color;
+  }
+
+  .lead {
+    color: $lead-text-color;
+  }
+}

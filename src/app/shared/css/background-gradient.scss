@@ -1,0 +1,9 @@
+@mixin background-gradient($color-stop1, $color-stop2, $color-stop3, $color-stop4, $color-stop5) {
+  // sass-lint:disable no-duplicate-properties
+  background: -moz-linear-gradient(top,  $color-stop1 0%, $color-stop2 17%, $color-stop3 35%, $color-stop4 62%, $color-stop5 100%); // FF3.6+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $color-stop1), color-stop(17%, $color-stop2), color-stop(35%, $color-stop3), color-stop(62%, $color-stop4), color-stop(100%, $color-stop5)); // Chrome,Safari4+
+  background: -webkit-linear-gradient(top,  $color-stop1 0%, $color-stop2 17%, $color-stop3 35%, $color-stop4 62%, $color-stop5 100%); // Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top,  $color-stop1 0%, $color-stop2 17%, $color-stop3 35%, $color-stop4 62%, $color-stop5 100%); // Opera 11.10+
+  background: -ms-linear-gradient(top,  $color-stop1 0%, $color-stop2 17%, $color-stop3 35%, $color-stop4 62%, $color-stop5 100%); // IE10+
+  background: linear-gradient(to bottom,  $color-stop1 0%, $color-stop2 17%, $color-stop3 35%, $color-stop4 62%, $color-stop5 100%); // W3C
+}

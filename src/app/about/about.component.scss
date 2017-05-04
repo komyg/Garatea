@@ -1,0 +1,32 @@
+
+.about-component {
+  padding: 80px 0;
+
+  .about-list {
+    margin: 30px 0 0;
+
+    li {
+      display: block;
+      font-size: 16px;
+      line-height: 30px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    span {
+      margin-right: 10px;
+    }
+  }
+
+  .intro {
+    font-size: 16px;
+    margin: 12px 0 0;
+    line-height: 24px;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .about-line {
+    text-align: left;
+    margin: 0;
+    margin-top: 20px;
+  }
+}

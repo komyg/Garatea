@@ -1,0 +1,54 @@
+$text-color:  #000;
+ $text-color:  #fff;
+$background-color: rgba(248, 248, 248, 0);
+$active-link-color: #fcac45;
+$icon-bar-color: #fff;
+
+.navbar-default {
+  padding: 20px;
+  transition: all .8s;
+
+  background-color: $background-color;
+  border-color: $background-color;
+
+  .navbar-brand {
+    font-size: 22px;
+    color: $text-color;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  li {
+    a {
+      color: $text-color;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 15px;
+
+      .active {
+        color: $active-link-color;
+        background-color: transparent;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-radius: 0;
+
+    :hover {
+      background-color: $active-link-color;
+      border-color: $active-link-color;
+
+      .icon-bar {
+        background-color: $icon-bar-color;
+      }
+    }
+
+    :focus {
+      background-color: $active-link-color;
+      border-color: $active-link-color;
+    }
+  }
+}

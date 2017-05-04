@@ -1,0 +1,21 @@
+{
+  "about":
+  {
+    "whatIsIt":
+    {
+      "title": "O que é",
+      "description": "O Garatéa, ou guarda-vidas em tupi-guarani, é uma rede que conecta voluntários capacitados em atendimento emergencial ao setor público de todo o Brasil. Quando o assunto é uma emergência, cada minuto conta - e, por conta disso, quanto mais rápido for o atendimento de primeiros socorros, maior a taxa de sobrevida da vítima."
+    },
+    "howItWorks":
+    {
+      "title": "Como funciona",
+      "description": "Para diminuir o tempo de espera pelo atendimento, o Garatéa gerencia uma rede de voluntários treinados e capacitados em primeiros socorros por meio de um aplicativo; ao receber uma notificação de emergência, essa rede é acionada pelo serviço público via geolocalização, triangulando a disponibilidade da rede Garatéa com a localização  da vítima e o disparo da ambulância; ao serem notificados, os respondentes podem chegar ao local da emergência em minutos."
+    },
+    "howItStarted":
+    {
+      "title": "Onde tudo começou",
+      "description": "Programa Pró Lider.",
+      "link": "http://www.programaprolider.com.br"
+    }
+  }
+}
