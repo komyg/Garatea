@@ -1,14 +1,26 @@
 $text-color:  #000;
- $text-color:  #fff;
-$background-color: rgba(248, 248, 248, 0);
+$text-color:  #fff;
 $active-link-color: #fcac45;
 $icon-bar-color: #fff;
 
-.navbar-default {
-  padding: 20px;
-  transition: all .8s;
+$background-color: rgba(248, 248, 248, 0);
+$background-on-color: #222;
 
+// Transparent nav-bar
+.off {
   background-color: $background-color;
+  padding: 20px;
+}
+
+// Solid nav-bar
+.on {
+  background-color: $background-on-color;
+  padding: 0;
+}
+
+.navbar-default {
+
+  transition: all .8s;
   border-color: $background-color;
 
   .navbar-brand {
@@ -34,7 +46,7 @@ $icon-bar-color: #fff;
     }
   }
 
-  .navbar-toggle {
+  .navbar-toggle-btn {
     border-radius: 0;
 
     :hover {
