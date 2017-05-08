@@ -5,6 +5,7 @@ $icon-bar-color: #fff;
 
 $background-color: rgba(248, 248, 248, 0);
 $background-on-color: #222;
+$border-color: rgba(248, 248, 248, 100);
 
 // Transparent nav-bar
 .off {
@@ -15,7 +16,7 @@ $background-on-color: #222;
 // Solid nav-bar
 .on {
   background-color: $background-on-color;
-  padding: 0;
+  padding: 5px;
 }
 
 .navbar-default {
@@ -23,11 +24,22 @@ $background-on-color: #222;
   transition: all .8s;
   border-color: $background-color;
 
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid $border-color;
+  }
+
   .navbar-brand {
     font-size: 22px;
     color: $text-color;
     font-weight: 900;
     text-transform: uppercase;
+  }
+
+  .navbar-collapse {
+    border-color: $border-color;
   }
 
   li {
@@ -47,18 +59,19 @@ $background-on-color: #222;
   }
 
   .navbar-toggle-btn {
-    border-radius: 0;
 
-    :hover {
+    cursor: pointer;
+
+    &:hover {
       background-color: $active-link-color;
       border-color: $active-link-color;
 
-      .icon-bar {
-        background-color: $icon-bar-color;
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
       }
     }
 
-    :focus {
+    &:focus {
       background-color: $active-link-color;
       border-color: $active-link-color;
     }

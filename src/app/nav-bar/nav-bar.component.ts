@@ -20,7 +20,6 @@ export class NavBarComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-
     const number = this.document.body.scrollTop;
     if (number > 100) {
       this.navBarOn = true;
