@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 
 import { AboutDataService } from './shared/service/about-data.service';
 import { TeamDataService } from './shared/service/team-data.service';
+import { ContactService } from './shared/service/contact.service';
 import { CarouselItemFilterPipe } from './shared/pipe/carousel-item-filter.pipe';
 import { NumberCountPipe } from './shared/pipe/number-count.pipe';
 
@@ -36,7 +37,8 @@ import { NumberCountPipe } from './shared/pipe/number-count.pipe';
   ],
   providers: [
     AboutDataService,
-    TeamDataService
+    TeamDataService,
+    ContactService
   ],
   bootstrap: [AppComponent]
 })

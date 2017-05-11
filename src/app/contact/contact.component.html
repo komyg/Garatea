@@ -5,7 +5,7 @@
             <div class="col-md-8 offset-2">
 
                 <div class="section-title center">
-                    <h2>Feel free to <strong>contact us</strong></h2>
+                    <h2>Entre em <strong>contato</strong></h2>
                     <div class="line">
                         <hr />
                     </div>
@@ -14,27 +14,39 @@
                     </div>
                 </div>
 
-                <form>
+                <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            <div class="form-group" [class.has-danger]="!senderName.valid && !senderName.pristine">
+                                <label class="form-control-label" for="senderName">Nome</label>
+                                <input type="text" class="form-control form-control-danger" id="senderName" name="senderName" #senderName="ngModel"
+                                    placeholder="Escreva o seu nome" required [(ngModel)]="contactModel.senderName">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <div class="form-group" [class.has-danger]="!senderEmail.valid && !senderEmail.pristine">
+                                <label class="form-control-label" for="senderEmail">E-mail</label>
+                                <input type="email" class="form-control form-control-danger" id="senderEmail" name="senderEmail" #senderEmail="ngModel"
+                                    placeholder="Endereço de e-mail" required [(ngModel)]="contactModel.senderEmail"
+                                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Message</label>
-                        <textarea class="form-control" rows="3"></textarea>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group" [class.has-danger]="!subject.valid && !subject.pristine">
+                          <label class="form-control-label" for="subject">Assunto</label>
+                          <input type="text" class="form-control form-control-danger" id="subject" name="subject" #subject="ngModel"
+                            placeholder="Assunto da mensagem" required [(ngModel)]="contactModel.subject">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" [class.has-danger]="!message.valid && !message.pristine">
+                        <label class="form-control-label" for="message">Mensagem</label>
+                        <textarea class="form-control form-control-danger" rows="3" required [(ngModel)]="contactModel.message" id="message" name="message" #message="ngModel"></textarea>
                     </div>
 
-                    <button type="submit" class="btn form-btn btn-default">Submit</button>
+                    <button type="submit" id="submitButton" class="btn form-btn btn-default" [disabled]="!contactForm.form.valid">Enviar</button>
                 </form>
 
             </div>

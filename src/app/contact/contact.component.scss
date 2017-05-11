@@ -15,6 +15,13 @@ $button-color: #fff;
   }
 
   .form-control {
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+  }
+
+  /*
+  .form-control {
     display: block;
     width: 100%;
     padding: 6px 12px;
@@ -37,7 +44,7 @@ $button-color: #fff;
       -webkit-box-shadow: transparent;
       box-shadow: transparent;
     }
-  }
+  }*/
 
   .form-text {
     margin-top: 25px;
@@ -52,6 +59,14 @@ $button-color: #fff;
     color: $button-color;
     text-transform: uppercase;
 
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:enabled {
+      cursor: pointer;
+    }
+
     :active {
       background-image: none;
       outline: 0;
@@ -59,6 +74,7 @@ $button-color: #fff;
       box-shadow: none;
     }
 
+    /*
     :focus,
     :active {
       :focus {
@@ -66,7 +82,7 @@ $button-color: #fff;
         outline: none;
         outline-offset: none;
       }
-    }
+    }*/
 
   }
 }
