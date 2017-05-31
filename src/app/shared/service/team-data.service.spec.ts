@@ -1,5 +1,5 @@
 import { TestBed, inject, async, fakeAsync, tick } from '@angular/core/testing';
-import { BaseRequestOptions, Http, HttpModule, Response, ResponseOptions } from '@angular/http';
+import { BaseRequestOptions, Http, HttpModule, Response, ResponseOptions, ResponseType } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { TeamDataService } from './team-data.service';
@@ -60,7 +60,7 @@ describe('TeamDataService', () => {
     // Listen and return the mock data.
     mockBackend.connections.subscribe(
       (conn: MockConnection) => {
-        conn.mockRespond(new Response(new ResponseOptions(({ body: JSON.stringify({ team: mockTeamData})
+        conn.mockRespond(new Response(new ResponseOptions(({ status: 200, body: JSON.stringify({ team: mockTeamData })
       }))));
     });
 
@@ -77,12 +77,17 @@ describe('TeamDataService', () => {
 
   it('should handle errors and return an error message', () => {
 
-    mockBackend.connections.subscribe((conn: MockConnection) => {
-      conn.mockError(new Error('Mock error'));
+    const body = JSON.stringify({ message: 'Erro ao obter dados da equipe' });
+    const opts = { type: ResponseType.Error, status: 404, body: body };
+    const responseOpts = new ResponseOptions(opts);
+
+    mockBackend.connections.subscribe(
+      (conn: MockConnection) => {
+        conn.mockRespond(new Response(responseOpts));
     });
 
-    service.getTeamData().then().catch((errorMsg: string) => {
-      expect(errorMsg).toBe('Ocorreu um erro: ' + 'Mock error' + ' por favor entre em contato com o administrador do sistema.');
+    service.getTeamData().catch((errorMsg: string) => {
+      expect(errorMsg).toEqual('ss');
     });
   });
 });

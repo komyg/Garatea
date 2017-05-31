@@ -2,27 +2,27 @@
   "team": [
     {
       "name": "Alexandre Lima",
-      "bio": "Graduando em Engenharia Mecatrônica e Embaixador Brazil Conference at Harvard & MIT",
+      "bio": "Graduando em Engenharia Mecatrônica e Embaixador Brazil Conference at Harvard & MIT;",
       "picture": "../../assets/img/team/01.jpg"
     },
     {
       "name": "Caio Poli",
-      "bio": "Trainee Danone formado em Comunicação Social com extensão em Finanças e Gerenciamento",
+      "bio": "Trainee Danone formado em Comunicação Social com extensão em Finanças e Gerenciamento;",
       "picture": "../../assets/img/team/02.jpg"
     },
     {
       "name": "Iani Zeigerman",
-      "bio": "Consultor na EloGroup com 3 anos de experiência para o Setor Público",
+      "bio": "Consultor na EloGroup com 3 anos de experiência para o Setor Público;",
       "picture": "../../assets/img/team/03.jpg"
     },
     {
       "name": "Melissa Benito",
-      "bio": "Graduada em Arquitetura e Urbanismo, M.Sc em Políticas Públicas e Desenvolvimento Humano",
+      "bio": "Graduada em Arquitetura e Urbanismo, M.Sc em Políticas Públicas e Desenvolvimento Humano;",
       "picture": "../../assets/img/team/Melissa.jpg"
     },
     {
       "name": "Stephanie Hong",
-      "bio": "Advogada e membro do Conselho de Responsabilidade Social do Pinheiro Neto Advogados",
+      "bio": "Advogada e membro do Conselho de Responsabilidade Social do Pinheiro Neto Advogados.",
       "picture": "../../assets/img/team/04.jpg"
     }
   ]

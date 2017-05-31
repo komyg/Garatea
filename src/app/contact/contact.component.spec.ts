@@ -7,17 +7,24 @@ import { FormsModule } from '@angular/forms';
 
 import { ContactComponent } from './contact.component';
 import { Contact } from '../shared/model/contact.model';
+import { ServiceResponse } from '../shared/model/service-response.model';
 import { ContactService } from '../shared/service/contact.service';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
   let fixture: ComponentFixture<ContactComponent>;
-  let mockService: ContactService;
+  let mockService;
 
   beforeEach(async(() => {
 
     mockService = {
-      sendContactData(data: Contact) {
+      sendContactData(data: Contact): Promise<ServiceResponse> {
+
+        const response = new ServiceResponse();
+        response.status = 200;
+        response.successs = true;
+
+        return Promise.resolve(response);
       }
     };
 

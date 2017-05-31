@@ -31,14 +31,21 @@ export class TeamDataService {
     }).catch(this.handleError);
   }
 
-  private handleError(error: Error): string {
-    let errorMsg: string;
+  private handleError(error: Error) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
 
-    errorMsg = 'Ocorreu um erro: ' + error.message + ' por favor entre em contato com o administrador do sistema.';
-    console.error(error.message);
-    console.error(error.stack);
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    }
+    else {
+      errMsg = error.message ? error.message : error.toString();
+    }
 
-    return errorMsg;
+    console.error(errMsg);
+    return Promise.reject(errMsg);
   }
 
 }
