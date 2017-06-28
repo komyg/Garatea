@@ -16,7 +16,6 @@ describe('AboutComponent', () => {
     const mockAboutData = new About();
     mockAboutData.whatIsIt = { title: 'Title 1', description: 'Lorem ipsum' };
     mockAboutData.howItWorks = { title: 'Title 2', description: 'Dolor sit amet' };
-    mockAboutData.howItStarted = { title: 'Title 3', description: 'Cogito ergo sum', link: 'http://www.google.com' };
 
     const aboutDataServiceStub: any = {
       getAboutData(): Promise<About> {
@@ -49,6 +48,8 @@ describe('AboutComponent', () => {
     const debugElements: DebugElement[] = fixture.debugElement.queryAll(By.css('.about-title'));
     const strArray: string[] = new Array<string>();
 
+    expect(debugElements.length).toEqual(2);
+
     // Add their contents to an array
     for (const element of debugElements) {
       strArray.push(element.nativeElement.textContent);
@@ -57,7 +58,6 @@ describe('AboutComponent', () => {
     // Check if the titles were added correctly
     expect(strArray).toContain('Title 1');
     expect(strArray).toContain('Title 2');
-    expect(strArray).toContain('Title 3');
   }));
 
   it('should display the description obtained from the about service', async(() => {
@@ -65,6 +65,8 @@ describe('AboutComponent', () => {
     // Get all the description (intro) elements.
     const debugElements: DebugElement[] = fixture.debugElement.queryAll(By.css('.intro'));
     const strArray: string[] = new Array<string>();
+
+    expect(debugElements.length).toEqual(2);
 
     // Add their contents to an array
     for (const element of debugElements) {
@@ -74,6 +76,5 @@ describe('AboutComponent', () => {
     // Check if the descriptions were added correctly
     expect(strArray).toContain('Lorem ipsum');
     expect(strArray).toContain('Dolor sit amet');
-    expect(strArray).toContain('Cogito ergo sum');
   }));
 });

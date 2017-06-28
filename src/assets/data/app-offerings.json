@@ -1,0 +1,21 @@
+{
+  "offerings":
+  {
+    "title": "Baixe o nosso app",
+    "subtitle": "",
+    "services": [
+      {
+        "title": "Google play (Android)",
+        "description": "",
+        "icon": "fa-android",
+        "link": ""
+      },
+      {
+        "title": "Apple Store (iPhone)",
+        "description": "Atualmente, x pessoas morrem no período de x tempo.",
+        "icon": "fa-apple",
+        "link": ""
+      }
+    ]
+  }
+}

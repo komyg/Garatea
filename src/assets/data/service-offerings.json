@@ -1,0 +1,27 @@
+{
+  "offerings":
+  {
+    "title": "Entenda os nossos serviços",
+    "subtitle": "O Garatéa gerencia uma rede de voluntários treinados e capacitados em primeiros socorros por meio de um aplicativo; ao receber uma notificação de emergência, essa rede é acionada pelo serviço público via geolocalização, triangulando a disponibilidade da rede Garatéa com a localização  da vítima e o disparo da ambulância; ao serem notificados, os respondentes podem chegar ao local da emergência em minutos.",
+    "services": [
+      {
+        "title": "Custos do serviço público",
+        "description": "Atualmente, o governo investe x dinheiros com os serviços emergenciais, mas de uma maneira não eficiente.",
+        "icon": "fa-arrow-circle-down",
+        "link": ""
+      },
+      {
+        "title": "Taxa de sobrevida",
+        "description": "Atualmente, x pessoas morrem no período de x tempo.",
+        "icon": "fa-heartbeat",
+        "link": ""
+      },
+      {
+        "title": "Tempo de espera",
+        "description": "Atualmente, os cidadãos têm que aguardar x minutos para um atendimento.",
+        "icon": "fa-clock-o",
+        "link": ""
+      }
+    ]
+  }
+}

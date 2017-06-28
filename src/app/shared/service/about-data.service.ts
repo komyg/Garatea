@@ -20,20 +20,33 @@ export class AboutDataService {
   public getAboutData(): Promise<About> {
 
     // Retrieve the about data and return it as a promise.
-    return this.http.get(this.aboutDataUrl).toPromise().then( (res: Response) => {
+    return this.http.get(this.aboutDataUrl).toPromise().then((res: Response) => {
+
+      if (!res.ok) {
+        return this.handleError(res);
+      }
 
       return new About(res.json().about);
-
-    }).catch(this.handleError);
+    });
   }
 
-  private handleError(error: Error): string {
-    let errorMsg: string;
+  private handleError(error: any): Promise<About> {
 
-    errorMsg = 'Ocorreu um erro: ' + error.message + ' por favor entre em contato com o administrador do sistema.';
-    console.error(error.message);
-    console.error(error.stack);
+    let errMsg: string;
 
-    return errorMsg;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    }
+    else if (error) {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    else {
+      errMsg = 'An error has occurred in the about data service.';
+    }
+
+    console.error(errMsg);
+    return Promise.reject(undefined);
   }
 }

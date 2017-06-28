@@ -3,19 +3,8 @@
   {
     "whatIsIt":
     {
-      "title": "O que é",
-      "description": "Garatéa, ou guarda-vidas em tupi-guarani, é uma iniciativa de formação de rede visando aumentar a taxa de sobrevivência em emergências médicas criando times de primeiros respondentes nas comunidades, para que em apenas um clique possam auxiliar no atendimento emergencial de vítimas que esperam pela chegada do SAMU/Resgate. Prezamos a universalidade, a cooperação e a convivência em comunidade."
-    },
-    "howItWorks":
-    {
-      "title": "Como funciona",
-      "description": "Para diminuir o tempo de espera pelo atendimento, o Garatéa gerencia uma rede de voluntários treinados e capacitados em primeiros socorros por meio de um aplicativo; ao receber uma notificação de emergência, essa rede é acionada pelo serviço público via geolocalização, triangulando a disponibilidade da rede Garatéa com a localização  da vítima e o disparo da ambulância; ao serem notificados, os respondentes podem chegar ao local da emergência em minutos."
-    },
-    "howItStarted":
-    {
-      "title": "Onde tudo começou",
-      "description": "Programa Pró Lider.",
-      "link": "http://www.programaprolider.com.br"
+      "title": "Saiba quem somos",
+      "description": "Garatéa, ou guarda-vidas em tupi-guarani, é uma organização sem fins lucrativos que aumenta a taxa de sobrevivência em emergências médicas criando times de primeiros respondentes nas comunidades, para que em apenas um clique possam auxiliar no atendimento emergencial de vítimas que esperam pela chegada do SAMU/Resgate."
     }
   }
 }

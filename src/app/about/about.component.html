@@ -23,13 +23,15 @@
   <div class="row">
     <div class="col-md-6">
 
-      <div *ngIf="aboutItems" class="about-text">
-        <div class="section-title">
-          <h4 class="about-title">{{aboutItems.howItWorks.title}}</h4>
-          <div class="about-line line">
+      <div *ngIf="aboutItems">
+        <div *ngIf="aboutItems.howItWorks" class="about-text">
+          <div class="section-title">
+            <h4 class="about-title">{{aboutItems.howItWorks.title}}</h4>
+            <div class="about-line line">
+            </div>
+            <div class="clearfix"></div>
+            <p class="intro">{{aboutItems.howItWorks.description}}</p>
           </div>
-          <div class="clearfix"></div>
-          <p class="intro">{{aboutItems.howItWorks.description}}</p>
         </div>
       </div>
 
@@ -37,17 +39,19 @@
 
     <div class="col-md-6">
 
-      <div *ngIf="aboutItems" class="about-text">
-        <div class="section-title">
-          <h4 class="about-title">{{aboutItems.howItStarted.title}}</h4>
-          <div class="about-line line">
+      <div *ngIf="aboutItems">
+        <div *ngIf="aboutItems.howItStarted" class="about-text">
+          <div class="section-title">
+            <h4 class="about-title">{{aboutItems.howItStarted.title}}</h4>
+            <div class="about-line line">
+            </div>
+            <div class="clearfix"></div>
+            <p class="intro">{{aboutItems.howItStarted.description}}</p>
           </div>
-          <div class="clearfix"></div>
-          <p class="intro">{{aboutItems.howItStarted.description}}</p>
         </div>
       </div>
 
     </div>
-
   </div>
+
 </div>

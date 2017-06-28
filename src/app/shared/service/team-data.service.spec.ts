@@ -77,17 +77,13 @@ describe('TeamDataService', () => {
 
   it('should handle errors and return an error message', () => {
 
-    const body = JSON.stringify({ message: 'Erro ao obter dados da equipe' });
-    const opts = { type: ResponseType.Error, status: 404, body: body };
-    const responseOpts = new ResponseOptions(opts);
-
     mockBackend.connections.subscribe(
       (conn: MockConnection) => {
-        conn.mockRespond(new Response(responseOpts));
+        conn.mockRespond(new Response(new ResponseOptions({ status: 404, statusText: 'Erro ao obter dados da equipe', type: ResponseType.Error })));
     });
 
-    service.getTeamData().catch((errorMsg: string) => {
-      expect(errorMsg).toEqual('ss');
+    service.getTeamData().catch((team: Team[]) => {
+      expect(team).toBeFalsy();
     });
   });
 });

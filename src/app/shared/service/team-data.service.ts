@@ -21,6 +21,10 @@ export class TeamDataService {
 
     return this.http.get(this.teamDataUrl).toPromise().then( (res: Response) => {
 
+      if (!res.ok) {
+        return this.handleError(res);
+      }
+
       // Parse each element of the JSON object that was received into a Team object.
       const teamArray: Team[] = new Array<Team>();
       for (const data of res.json().team) {
@@ -28,11 +32,11 @@ export class TeamDataService {
       }
 
       return teamArray;
-    }).catch(this.handleError);
+    });
   }
 
-  private handleError(error: Error) {
-    // In a real world app, we might use a remote logging infrastructure
+  private handleError(error: any): Promise<Team[]> {
+
     let errMsg: string;
 
     if (error instanceof Response) {
@@ -40,12 +44,15 @@ export class TeamDataService {
       const err = body.error || JSON.stringify(body);
       errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
     }
-    else {
+    else if (error) {
       errMsg = error.message ? error.message : error.toString();
+    }
+    else {
+      errMsg = 'An error has occurred in the team data service.';
     }
 
     console.error(errMsg);
-    return Promise.reject(errMsg);
+    return Promise.reject(undefined);
   }
 
 }

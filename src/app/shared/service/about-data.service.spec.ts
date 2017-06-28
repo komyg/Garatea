@@ -1,5 +1,5 @@
 import { TestBed, inject, async, fakeAsync, tick } from '@angular/core/testing';
-import { BaseRequestOptions, Http, HttpModule, Response, ResponseOptions } from '@angular/http';
+import { BaseRequestOptions, Http, HttpModule, Response, ResponseOptions, ResponseType } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 import { AboutDataService } from './about-data.service';
@@ -60,7 +60,7 @@ describe('AboutDataService', () => {
     // Listen and rerturn the mock data.
     mockBackend.connections.subscribe (
       (conn: MockConnection) => {
-        conn.mockRespond(new Response(new ResponseOptions(({ body: JSON.stringify({ about: mockAboutData })
+        conn.mockRespond(new Response(new ResponseOptions(({ status: 200, body: JSON.stringify({ about: mockAboutData })
       }))));
     });
 
@@ -85,14 +85,15 @@ describe('AboutDataService', () => {
 
   }));
 
-  it('should handle errors and return an error message', () => {
+  it('should handle errors and log an error message', () => {
 
-    mockBackend.connections.subscribe((conn: MockConnection) => {
-      conn.mockError(new Error('Mock error'));
+    mockBackend.connections.subscribe(
+      (conn: MockConnection) => {
+        conn.mockRespond(new Response(new ResponseOptions({ status: 404, statusText: 'Erro ao obter dados', type: ResponseType.Error })));
     });
 
-    service.getAboutData().then().catch((errorMsg: string) => {
-      expect(errorMsg).toBe('Ocorreu um erro: ' + 'Mock error' + ' por favor entre em contato com o administrador do sistema.');
+    service.getAboutData().catch((about: About) => {
+      expect(about).toBeFalsy();
     });
   });
 });

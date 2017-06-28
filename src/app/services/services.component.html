@@ -1,0 +1,24 @@
+<div id="services" class="services-component container text-center">
+  <div *ngIf="serviceOfferingsObservable | async; let serviceOfferings">
+
+    <div class="section-title center">
+      <h2><strong>{{serviceOfferings.title}}</strong></h2>
+      <div class="line">
+        <hr />
+      </div>
+      <div class="sub-heading-text">
+        <small><em>{{serviceOfferings.subtitle}}</em></small>
+      </div>
+    </div>
+    <div class="space"></div>
+
+    <div class="row">
+      <div *ngFor="let serviceOffer of serviceOfferings.services" class="service" [ngClass]="getColsClass(serviceOfferings)">
+        <i class="icon fa" [ngClass]="serviceOffer.icon"></i>
+        <h4><strong>{{serviceOffer.title}}</strong></h4>
+        <p>{{serviceOffer.description}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
