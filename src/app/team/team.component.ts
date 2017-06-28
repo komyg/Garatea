@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TeamDataService } from '../shared/service/team-data.service';
 import { Team } from '../shared/model/team.model';
+import { CarouselHelper } from '../shared/helper/carousel.helper';
 
 @Component({
   selector: 'app-team',
@@ -30,34 +31,24 @@ export class TeamComponent implements OnInit {
 
   /**
    * Sets the max number of items per page on the carousel, based on the current screen resolution.
-   * Note: the secreen sizes were taken from bootstrap.
    */
   private setNumItensPerPage() {
-
-    if (window.innerWidth >= 970) {
-      this.numItemsPerPage = 4;
-    }
-    else if (window.innerWidth > 768 && window.innerWidth < 970) {
-      this.numItemsPerPage = 2;
-    }
-    else if (window.innerWidth <= 768) {
-      this.numItemsPerPage = 1;
-    }
+    this.numItemsPerPage = CarouselHelper.calcNumItensPerPage(window.innerWidth);
   }
 
   /**
    * Calculate the number of required pages.
    */
   private setNumPages() {
-    this.numPages = Math.ceil(this.teamMembers.length / this.numItemsPerPage);
+    this.numPages = CarouselHelper.calcNumPages(this.teamMembers.length, this.numItemsPerPage);
   }
 
   /**
    * Callback when the window changes resolution.
    */
   public onWindowChange(e: any) {
-    this.setNumPages();
     this.setNumItensPerPage();
+    this.setNumPages();
   }
 
 }
