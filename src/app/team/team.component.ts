@@ -11,9 +11,9 @@ import { CarouselHelper } from '../shared/helper/carousel.helper';
 })
 export class TeamComponent implements OnInit {
 
-  public teamMembers: Team[];
-  public numItemsPerPage: number;
-  public numPages: number;
+  private teamMembers: Team[];
+  private numItemsPerPage: number;
+  private numPages: number;
 
   constructor(private teamDataService: TeamDataService) { }
 

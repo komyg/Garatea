@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { Offer } from '../model/offer.model';
 import { OfferType } from '../model/offer-type.enum';
@@ -23,7 +24,7 @@ export class OfferingsDataService {
 
     const url: string = this.getOfferUrl(type);
 
-    return this.http.get(url).map((res: Response) => res.json().offerings as Offer);
+    return this.http.get(url).map((res: Response) => res.json().offerings as Offer).catch(this.handleError);
   }
 
   // Retrieves the offer URL
@@ -36,6 +37,13 @@ export class OfferingsDataService {
       case OfferType.app:
         return this.appOfferingsUrl;
     }
+  }
+
+  private handleError(error: Response) {
+    const msg = 'Error retrieving offerings data. Status: ' + error.status + ' ' + error.statusText;
+
+    console.error(msg);
+    return Observable.throw(msg);
   }
 
 }

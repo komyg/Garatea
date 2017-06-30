@@ -1,0 +1,20 @@
+{
+  "partnerData":[
+    {
+      "name": "Força Jovem Universal",
+      "img": "../../assets/img/partners/partner-01.jpg"
+    },
+    {
+      "name": "GoodSAM",
+      "img": "../../assets/img/partners/partner-02.png"
+    },
+    {
+      "name": "Programa Prolíder",
+      "img": "../../assets/img/partners/partner-03.png"
+    },
+    {
+      "name": "Corpo de Bombeiros de Jaraguá do Sul",
+      "img": "../../assets/img/partners/partner-04.jpg"
+    }
+  ]
+}

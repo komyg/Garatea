@@ -14,11 +14,13 @@ import { ContactComponent } from './contact/contact.component';
 
 import { AboutDataService } from './shared/service/about-data.service';
 import { TeamDataService } from './shared/service/team-data.service';
+import { PartnerDataService } from './shared/service/partner-data.service';
 import { ContactService } from './shared/service/contact.service';
 import { OfferingsDataService } from './shared/service/offerings-data.service';
 import { CarouselItemFilterPipe } from './shared/pipe/carousel-item-filter.pipe';
 import { NumberCountPipe } from './shared/pipe/number-count.pipe';
 import { ServicesComponent } from './services/services.component';
+import { PartnersComponent } from './partners/partners.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ServicesComponent } from './services/services.component';
     ContactComponent,
     CarouselItemFilterPipe,
     NumberCountPipe,
-    ServicesComponent
+    ServicesComponent,
+    PartnersComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { ServicesComponent } from './services/services.component';
   providers: [
     AboutDataService,
     TeamDataService,
+    PartnerDataService,
     ContactService,
     OfferingsDataService
   ],

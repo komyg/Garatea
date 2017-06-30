@@ -39,7 +39,7 @@ describe('OfferingsService', () => {
     expect(mockBackend).toBeTruthy();
   });
 
-  it('should retrieve offierings data', () => {
+  it('should retrieve offerings data', () => {
 
     const mockData = {
       title: 'Lorem ipsum',
@@ -74,6 +74,22 @@ describe('OfferingsService', () => {
       expect(data.services.length).toBe(mockData.services.length);
       expect(data.services[0].icon).toBe(mockData.services[0].icon);
 
+    });
+
+  });
+
+  it('should handle errors and log an error message', () => {
+
+    mockBackend.connections.subscribe(
+      (conn: MockConnection) => {
+        conn.mockRespond(new Response(new ResponseOptions({ status: 404, statusText: 'Error getting the offerings data.', type: ResponseType.Error })));
+    });
+
+    service.getOfferings(OfferType.service).subscribe((data: Offer) => {
+      expect(data).toBeFalsy();
+    },
+    (error: any) => {
+      expect(error).toContain('Error retrieving offerings data.');
     });
 
   });
