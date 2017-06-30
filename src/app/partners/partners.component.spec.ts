@@ -22,18 +22,28 @@ describe('PartnersComponent', () => {
 
     const mockTeamMembers: Partner[] = [
       {
+        name: '',
+        description: '',
         img: './img/team/01.jpg'
       },
       {
+        name: '',
+        description: '',
         img: './img/team/02.jpg'
       },
       {
+        name: '',
+        description: '',
         img: './img/team/03.jpg'
       },
       {
+        name: '',
+        description: '',
         img: './img/team/04.jpg'
       },
       {
+        name: '',
+        description: '',
         img: './img/team/05.jpg'
       }
     ];

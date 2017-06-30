@@ -7,22 +7,22 @@ import { OfferingsDataService } from '../shared/service/offerings-data.service';
 import { OfferingsHelper } from '../shared/helper/offerings.helper';
 
 @Component({
-  selector: 'app-services',
-  templateUrl: './services.component.html',
-  styleUrls: ['./services.component.scss']
+  selector: 'app-apps',
+  templateUrl: './apps.component.html',
+  styleUrls: ['./apps.component.scss']
 })
-export class ServicesComponent implements OnInit {
+export class AppsComponent implements OnInit {
 
-  private serviceOfferingsObservable: Observable<Offer>;
+  private appOfferingsData: Observable<Offer>;
 
   constructor(private offeringsDataService: OfferingsDataService) { }
 
   ngOnInit() {
-    this.serviceOfferingsObservable = this.offeringsDataService.getOfferings(OfferType.service);
+    this.appOfferingsData = this.offeringsDataService.getOfferings(OfferType.app);
   }
 
-   private getColsClass(offer: Offer): string {
-     return OfferingsHelper.getColsClass(offer);
-   }
+  private getColsClass(offer: Offer): string {
+    return OfferingsHelper.getColsClass(offer);
+  }
 
 }

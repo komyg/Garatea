@@ -1,0 +1,24 @@
+<div id="apps" class="apps-component container text-center">
+  <div *ngIf="appOfferingsData | async; let appOfferings">
+
+    <div class="section-title center">
+      <h2><strong>{{appOfferings.title}}</strong></h2>
+      <div class="line">
+        <hr />
+      </div>
+      <div class="sub-heading-text">
+        <small><em>{{appOfferings.subtitle}}</em></small>
+      </div>
+    </div>
+    <div class="space"></div>
+
+    <div class="row">
+      <div *ngFor="let app of appOfferings.services" class="app" [ngClass]="getColsClass(appOfferings)">
+        <i class="icon fa" [ngClass]="app.icon"></i>
+        <h4><strong>{{app.title}}</strong></h4>
+        <p>{{app.description}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -21,6 +21,7 @@ import { CarouselItemFilterPipe } from './shared/pipe/carousel-item-filter.pipe'
 import { NumberCountPipe } from './shared/pipe/number-count.pipe';
 import { ServicesComponent } from './services/services.component';
 import { PartnersComponent } from './partners/partners.component';
+import { AppsComponent } from './apps/apps.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PartnersComponent } from './partners/partners.component';
     CarouselItemFilterPipe,
     NumberCountPipe,
     ServicesComponent,
-    PartnersComponent
+    PartnersComponent,
+    AppsComponent
   ],
   imports: [
     BrowserModule,

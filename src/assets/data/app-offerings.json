@@ -2,17 +2,17 @@
   "offerings":
   {
     "title": "Baixe o nosso app",
-    "subtitle": "",
+    "subtitle": "Baixe o nosso aplicativo para participar.",
     "services": [
       {
-        "title": "Google play (Android)",
-        "description": "",
+        "title": "Google play",
+        "description": "Android",
         "icon": "fa-android",
         "link": ""
       },
       {
-        "title": "Apple Store (iPhone)",
-        "description": "Atualmente, x pessoas morrem no período de x tempo.",
+        "title": "Apple Store",
+        "description": "iPhone",
         "icon": "fa-apple",
         "link": ""
       }
