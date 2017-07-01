@@ -22,6 +22,7 @@ import { NumberCountPipe } from './shared/pipe/number-count.pipe';
 import { ServicesComponent } from './services/services.component';
 import { PartnersComponent } from './partners/partners.component';
 import { AppsComponent } from './apps/apps.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AppsComponent } from './apps/apps.component';
     NumberCountPipe,
     ServicesComponent,
     PartnersComponent,
-    AppsComponent
+    AppsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
