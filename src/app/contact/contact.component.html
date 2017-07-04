@@ -5,12 +5,12 @@
             <div class="col-md-8 offset-2">
 
                 <div class="section-title center">
-                    <h2>Quero ser um <strong>voluntário</strong></h2>
+                    <h2>Entre em <strong>contato</strong> conosco</h2>
                     <div class="line">
                         <hr />
                     </div>
                     <div class="form-text">
-                      <small><em>Preencha os dados abaixo e entraremos em contato.</em></small>
+                      <small><em>Caso queira se tornar um parceiro ou tenha alguma dúvida, nos mande uma mensagem. Responderemos em 24 horas.</em></small>
                     </div>
                 </div>
 
@@ -46,7 +46,11 @@
                         <textarea class="form-control form-control-danger" rows="3" required [(ngModel)]="contactModel.message" id="message" name="message" #message="ngModel"></textarea>
                     </div>
 
-                    <button type="submit" id="submitButton" class="btn form-btn btn-default" [disabled]="!contactForm.form.valid">Enviar</button>
+                    <div class="container form-group" [class.has-danger]="statusError" [class.has-success]="statusSent">
+                      <button type="submit" id="submitButton" class="btn form-btn btn-default" [disabled]="!contactForm.form.valid || sendingEmail">{{sendButtonText}}</button>
+                      <p id="successLabel" [hidden]="!statusSent" class="form-control-feedback">E-mail enviado com sucesso!</p>
+                      <p id="errorLabel" [hidden]="!statusError" class="form-control-feedback">Erro ao enviar e-mail. Por favor tente novamente mais tarde.</p>
+                    </div>
                 </form>
 
             </div>

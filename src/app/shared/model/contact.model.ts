@@ -4,5 +4,6 @@ export class Contact {
   public senderName: string;
   public subject: string;
   public message: string;
+  public type: number;
 
 }

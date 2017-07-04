@@ -2,9 +2,11 @@ import { TestBed, inject, async, fakeAsync, tick } from '@angular/core/testing';
 import { BaseRequestOptions, Http, HttpModule, Response, ResponseOptions, ResponseType } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 import { ContactService } from './contact.service';
 import { Contact } from '../model/contact.model';
-import { ServiceResponse } from '../model/service-response.model';
 
 describe('ContactService', () => {
 
@@ -39,13 +41,12 @@ describe('ContactService', () => {
 
   it('should post the contact data via HTTP', () => {
 
-    let result: Promise<ServiceResponse>;
-
     const mockContactData: Contact = {
       senderEmail: 'my.email@email.com',
       senderName: 'John Doe',
       subject: 'Lorem ipsum',
-      message: 'Lorem ipsum dolor sit amet'
+      message: 'Lorem ipsum dolor sit amet',
+      type: 0
     };
 
     // Listen and return an ok.
@@ -54,30 +55,34 @@ describe('ContactService', () => {
         conn.mockRespond(new Response(new ResponseOptions(({ status: 200 }))));
     });
 
-    result = service.sendContactData(mockContactData);
-    result.then((response: ServiceResponse) => {
-      expect(response.status).toEqual(200);
+    service.sendContactData(mockContactData).subscribe((res: Response) => {
+      expect(res.status).toEqual(200);
     });
 
   });
 
-  it('should handle any errors during the post', () => {
+  it('should handle errors and log an error message', () => {
 
-    let result: Promise<ServiceResponse>;
-
-    const body = JSON.stringify({ message: 'Erro ao enviar e-mail' });
-    const opts = { type: ResponseType.Error, status: 404, body: body };
-    const responseOpts = new ResponseOptions(opts);
+    const mockContactData: Contact = {
+      senderEmail: 'my.email@email.com',
+      senderName: 'John Doe',
+      subject: 'Lorem ipsum',
+      message: 'Lorem ipsum dolor sit amet',
+      type: 0
+    };
 
     mockBackend.connections.subscribe(
       (conn: MockConnection) => {
-        conn.mockRespond(new Response(responseOpts));
+        conn.mockRespond(new Response(new ResponseOptions({ status: 500, statusText: 'Error sending e-mail.', type: ResponseType.Error })));
     });
 
-    result = service.sendContactData(new Contact());
-    result.catch((response: ServiceResponse) => {
-      expect(response.status).toEqual(404);
+    service.sendContactData(mockContactData).subscribe((res: Response) => {
+
+    },
+    (error: any) => {
+      expect(error).toContain('Error sending e-mail.');
     });
+
   });
 
 });
