@@ -9,7 +9,7 @@
             </div>
 
             <ngb-carousel *ngIf="teamMembers" class="team" interval="0">
-              <template *ngFor="let page of [numPages] | numberCount; let pageNumber = index" ngbSlide>
+              <ng-template *ngFor="let page of [numPages] | numberCount; let pageNumber = index" ngbSlide>
 
                 <div *ngFor="let teamMember of teamMembers | carouselItemFilter :[numItemsPerPage]:[pageNumber];" class="item">
                   <img src="{{ teamMember.picture }}" alt="..." class="rounded-circle team-member-img">
@@ -19,7 +19,7 @@
                   </div>
                 </div>
 
-              </template>
+              </ng-template>
 
             </ngb-carousel>
 

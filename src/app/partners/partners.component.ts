@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
@@ -20,7 +20,6 @@ export class PartnersComponent implements OnInit {
   constructor(private partnerDataService: PartnerDataService) { }
 
   ngOnInit() {
-    window.onresize = this.onWindowChange.bind(this);
     this.setNumItensPerPage();
 
     this.partnerDataService.getPartnerData().subscribe((partnersData: Partner[]) => {
@@ -49,6 +48,7 @@ export class PartnersComponent implements OnInit {
   /**
    * Callback when the window changes resolution.
    */
+  @HostListener('window:resize', ['$event'])
   public onWindowChange(e: any) {
     this.setNumItensPerPage();
     this.setNumPages();

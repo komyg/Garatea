@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { TeamDataService } from '../shared/service/team-data.service';
 import { Team } from '../shared/model/team.model';
@@ -7,7 +7,7 @@ import { CarouselHelper } from '../shared/helper/carousel.helper';
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss']
+  styleUrls: ['./team.component.scss'],
 })
 export class TeamComponent implements OnInit {
 
@@ -18,8 +18,6 @@ export class TeamComponent implements OnInit {
   constructor(private teamDataService: TeamDataService) { }
 
   ngOnInit() {
-
-    window.onresize = this.onWindowChange.bind(this);
     this.setNumItensPerPage();
 
     // Get team member data.
@@ -46,6 +44,7 @@ export class TeamComponent implements OnInit {
   /**
    * Callback when the window changes resolution.
    */
+  @HostListener('window:resize', ['$event'])
   public onWindowChange(e: any) {
     this.setNumItensPerPage();
     this.setNumPages();
