@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../../environments/environment';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,7 +12,7 @@ import { Contact } from '../model/contact.model';
 @Injectable()
 export class ContactService {
 
-  private contactServletUrl = 'http://localhost:8080/email';
+  private contactServletUrl = environment.apiUrl +  '/email';
 
   constructor(private http: Http) { }
 
